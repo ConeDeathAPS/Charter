@@ -17,17 +17,20 @@
 	</div>
 	<script type="text/javascript" src="Charter.js"></script>
 	<script type="text/javascript">
-	var data = [1, 7, 3, 8, 4, 7, 2];
+	var data = [2, 210, 74, 109, 316, 321, 280];
+	var x = ["2004", "2005", "2006", "2007", "2008", "2009", "2010"];
 	Charter.get_styling({
 		bar_color: "red",
-		chart_background: "black",
+		chart_background: "white",
 		label_background: "white",
 		name: "NewGraph",
 		x_axis_labels: [],
-		y_axis_labels: []
+		y_axis_labels: [],
+		bar_label_color: "white",
+		border_color: "black",
 	});
 	
-	Charter.draw_chart("chart", data, Charter.auto_scaling(data, 1000, 1000));
+	Charter.draw_chart("chart", data, 500, 500, x);
 	</script>
 </body>
 </html>
