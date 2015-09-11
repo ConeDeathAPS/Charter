@@ -4,9 +4,30 @@
 	<meta charset="UTF-8">
 	<title>Charter Test</title>
 	<script type="text/javascript" src="jquery.min.js"></script>
-	<script type="text/javascript" src="Charter.js"></script>
+
+	<style type="text/css">
+
+
+
+	</style>
 </head>
 <body>
+	<div id="chart">
+		
+	</div>
+	<script type="text/javascript" src="Charter.js"></script>
+	<script type="text/javascript">
+	var data = [1, 7, 3, 8, 4, 7, 2];
+	Charter.get_styling({
+		bar_color: "red",
+		chart_background: "black",
+		label_background: "white",
+		name: "NewGraph",
+		x_axis_labels: [],
+		y_axis_labels: []
+	});
 	
+	Charter.draw_chart("chart", data, Charter.auto_scaling(data, 1000, 1000));
+	</script>
 </body>
 </html>
