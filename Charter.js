@@ -1,4 +1,5 @@
 var Charter = (function() {
+	var data;
 	var bar_height_multiplier;
 	var bar_width;
 	var bcolor;
@@ -20,10 +21,12 @@ var Charter = (function() {
 			bar_label_color = properties.bar_label_color;
 			border_color = properties.border_color;
 		},
-		auto_scaling: function(data, user_height, user_width) {
-			var max = data[0];
+		auto_scaling: function(user_data, user_height, user_width) {
+			var max = 0;
+			data = [];
 			// console.log(length);
-			for (i = 0; i < data.length; i++) {
+			for (i = 0; i < user_data.length; i++) {
+				data.push(Number(user_data[i]));
 				if (data[i] > max) {
 					max = data[i];
 				}
@@ -36,14 +39,14 @@ var Charter = (function() {
 			var scaling = [bar_height_multiplier, bar_width];
 			return scaling;
 		},
-		draw_chart: function(chartID, data, height, width, x_labels, y_labels) {
+		draw_chart: function(chartID, data, height, width) {
 			//declare some local variables
 			var chart = document.getElementById(chartID);
 			var scaling = this.auto_scaling(data, height, width);
 			//add a container for holding the bars and separating them from the outside of the container
-			chart.innerHTML = "<div id='chart_container' height='" + (height-40) +"' width='" + (width-40) + "' style='margin:5px auto;vertical-align:middle;background-color:" + ccolor + ";border-bottom:2px solid " + border_color + ";border-left:2px solid " + border_color + ";display:inline-block;'></div>";
+			chart.innerHTML = "<h2 style='text-align:center;margin:5px;font-family:arial;'>" + name + "</h2><div id='chart_container' height='" + (height-40) +"' width='" + (width-40) + "' style='margin:5px auto;vertical-align:middle;background-color:" + ccolor + ";border-bottom:2px solid " + border_color + ";border-left:2px solid " + border_color + ";display:inline-block;'></div>";
 			//format the styling of the chart main container
-			chart.setAttribute("style", "width:" + (width+20) + "px;background-color:" + lcolor + ";display:inline-block;");
+			chart.setAttribute("style", "width:" + (width+(20*data.length)) + "px;background-color:" + lcolor + ";display:inline-block;");
 			//set the chart_data container we just made to a local variable
 			var chart_data = document.getElementById("chart_container");
 			//populate the bars
@@ -55,16 +58,16 @@ var Charter = (function() {
 				chart_data.appendChild(div);
 			}
 			//begin populating labels if the user specified values for them
-			if (x_labels) {
+			if (x_text) {
 				var x_labels_container = document.createElement("ul");
 				x_labels_container.setAttribute("style", "vertical-align:bottom;height:20px;list-style-type:none;margin:0px;padding-left:3px;");
 				chart.appendChild(x_labels_container);
-				for (i = 0; i < x_labels.length; i++) {
+				for (i = 0; i < x_text.length; i++) {
 					var label = document.createElement("li");
 					console.log(label);
 					label.setAttribute("id", "label" + i);
 					label.setAttribute("style", "list-style-type:none;display:inline-block;width:" + scaling[1] + "px;margin:0px 5px;text-align:center;");
-					label.innerHTML = x_labels[i];
+					label.innerHTML = x_text[i];
 					x_labels_container.appendChild(label);
 				}
 			}
