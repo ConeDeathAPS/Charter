@@ -4,7 +4,7 @@
 ##Setup
 Setup is super easy. You will need three things at minimum:
 + An array containing some data. Don't worry if the data are stored as strings, they will be converted to numbers within Charter. You can name it whatever you want, you will just pass it into the drawing function.
-- ex. `var data = [1, 3, 7, 2, "5", 10, "200"];`
+	- ex. `var data = [1, 3, 7, 2, "5", 10, "200"];`
 + You'll want to copy and fill out the initialization object. It looks like this:
 ```    javascript
 	Charter.get_styling({
@@ -18,10 +18,11 @@ Setup is super easy. You will need three things at minimum:
         border_color: "black"
     });
 ```
-- Enter colors the same way you would in CSS, just within quotes.
-- The y-axis labels are not yet configured. That is coming later. You also do not need to specify x-axis labels if you do not wish.
+	- Enter colors the same way you would in CSS, just within quotes.
+	- The y-axis labels are not yet configured. That is coming later. You also do not need to specify x-axis labels if you do not wish.
 + Finally, lets graw the graph! You'll need a div with a unique ID. You will pass this, along with your data array and desired width and height (in pixels) into the draw_graph function within Charter. It should look like this:
-- 'js Charter.draw_chart("myGraph", data, height, width);'
+	- 'js Charter.draw_chart("myGraph", data, height, width);'
+
 That's all there is to it! It's pretty basic right now, but I will eventually add different types of graphs, make them responsive, and maybe even add some easing. I hope this helps you accomplish what you want!
 
 --Andrew
