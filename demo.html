@@ -4,18 +4,13 @@
 	<meta charset="UTF-8">
 	<title>Charter Test</title>
 	<script type="text/javascript" src="jquery.min.js"></script>
-
-	<style type="text/css">
-
-
-
-	</style>
+	<script type="text/javascript" src="Charter.js"></script>	
+	
 </head>
 <body>
 	<div id="chart">
 		
 	</div>
-	<script type="text/javascript" src="Charter.js"></script>
 	<script type="text/javascript">
 	var data = [2, 210, 74, 109, 316, 321, 280];
 
@@ -31,7 +26,7 @@
 		title: "Testing"
 	});
 	
-	Charter.draw_chart("chart", data, 500, 500);
+	Charter.draw_chart("chart", data, 500, 1000);
 	</script>
 </body>
 </html>
