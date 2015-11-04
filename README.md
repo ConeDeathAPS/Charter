@@ -21,8 +21,9 @@ Setup is super easy. You will need three things at minimum:
 + Enter colors the same way you would in CSS, just within quotes.
 + The y-axis labels are not yet configured. That is coming later. You also do not need to specify x-axis labels if you do not wish.
 + Finally, lets graw the graph! You'll need a div with a unique ID. You will pass this, along with your data array and desired width and height (in pixels) into the draw_graph function within Charter. It should look like this:
-	- 'js Charter.draw_chart("myGraph", data, height, width);'
-
+``` javascript
+ Charter.draw_chart("myGraph", data, height, width);
+```
 That's all there is to it! It's pretty basic right now, but I will eventually add different types of graphs, make them responsive, and maybe even add some easing. I hope this helps you accomplish what you want!
 
 --Andrew
